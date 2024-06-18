@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Solomon's blog
-        </title>
-    </head>
-    <body>
-        <p>Hi there!</p>
-        <p>It works finally </p>
-        <header>
-            <h1>
-                My first blog post
-            </h1>
-            <h2>My journey into the world of tech</h2>
-            <p>
-                My name is Fajana Ayomide Solomon i'm a cs student 2nd year and 
-                this is me documenting my journey with my first ever blog. I just 
-                started with python development using django and it's been an 
-                amazing experience so far 
-                check out my live version of the blog at 
-                <a href="https://solquite.pythonanywhere.com">The code Monarch</a>
-            </p>
-            <article>
-                <time datetime="">Published: 17.06.2024, 17:52</time>
-            </article>
-        </header>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solomon's blog</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/">The Code Monarch's blog</a></h1>
+    </header>
+</body>
 </html>
+{% for post in posts %}
+    <article>
+        <p><time datetime="">created: {{ post.created_date }}</time></p>
+        <time datetime="">published: {{ post.published_date }}</time>
+        <p>{{ post.author }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text| linebreaksbr }}</p>
+    </article>
+{% endfor %}
