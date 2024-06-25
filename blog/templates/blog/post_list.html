@@ -11,7 +11,7 @@
         <form action="{% url 'like_post' post.id %}" method="post" style="display: inline;">
             {% csrf_token %}
             <button type="submit" style="border: none; background: none;">
-                <i class="fa{% if post.id in user_liked_posts %}s{% else %}r{% endif %} fa-heart {% if post.id in user_liked_posts %}liked{% endif %}"></i>
+                <i class="fa{% if post.id in user_liked_posts %}s{% else %}r{% endif %} fa-heart {% if post.id in user_liked_posts %}liked{% endif %}" id="heart"></i>
             </button>
         </form>
         <span>{{ post_likes.post.id }} like </span>
