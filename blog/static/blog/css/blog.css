@@ -81,3 +81,9 @@ h4 {
     color: rgb(7, 66, 175);
     font-style: italic;
 }
+.liked{
+    color: red;
+}
+.comment{
+    margin: 20px 0px 20px 20px;
+}

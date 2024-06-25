@@ -4,10 +4,18 @@
 {% for post in posts %}
     <article class="post">
         <time class="date">
-            {{ post.published_date }}  
+            {{ post.published_date }}
         </time>
         <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p>{{ post.text|truncatewords:30|linebreaksbr }}</p>
+        <form action="{% url 'like_post' post.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" style="border: none; background: none;">
+                <i class="fa{% if post.id in user_liked_posts %}s{% else %}r{% endif %} fa-heart {% if post.id in user_liked_posts %}liked{% endif %}"></i>
+            </button>
+        </form>
+        <span>{{ post_likes.post.id }} like </span>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
     </article>
 {% endfor %}
 {% endblock %}
